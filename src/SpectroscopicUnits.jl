@@ -2,8 +2,7 @@
 
 """
 This package implements basic unit conversions between units commonly used in spectroscopy which are not of the same dimensions,
-such as Hz and m. It exports the function `convert_unit` which follows the same notation as uconvert from Unitful.
-In the future it would be worthwhile to see if units and their conversion could be enforced in the rest of my packages.
+such as Hz and m. It exports the function `convert_unit` which follows the same convention as uconvert from Unitful.
 """
 module SpectroscopicUnits
 
