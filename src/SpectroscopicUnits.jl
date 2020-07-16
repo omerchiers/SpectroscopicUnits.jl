@@ -30,7 +30,7 @@ function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,U}) wher
 end
 
 function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,typeof(unit(1.0u"rad/s"))}) where {T<:Real,D}
-    return uconvert(unit, 2.0 * pi * c_0 / quantity * 1.0 * u"rad")
+    return uconvert(unit, 2.0 * pi * c_0 / quantity)
 end
 
 function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,typeof(unit(1.0u"eV"))}) where {U <: Unitful.FrequencyUnits, T<:Real,D}
@@ -45,7 +45,7 @@ end
 
 
 convert_unit(unit::U, quantity::Unitful.Length) where {U <: Unitful.FrequencyUnits} = uconvert(unit, c_0 / (quantity |> m))
-convert_unit(unit::typeof(radHz), quantity::Unitful.Length) = unconvert(unit, 2.0 * pi * c_0 / (quantity |> m))
+convert_unit(unit::typeof(radHz), quantity::Unitful.Length) = uconvert(unit, 2.0 * pi * c_0 / (quantity |> m))
 
 function convert_unit(unit::typeof(u"eV"), quantity::Unitful.Length)
     freq = uconvert(Hz, c_0 / quantity )
