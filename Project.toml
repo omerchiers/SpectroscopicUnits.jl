@@ -3,6 +3,11 @@ uuid = "0254b9f8-588e-4adc-8079-5000bdf5a5ec"
 authors = ["Olivier Merchiers <omerchiers@gmail.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+PhysicalConstants = "5ad8b20f-a522-5ce9-bfc9-ddf1d5bda6ab"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+
 [compat]
 julia = "1"
 
