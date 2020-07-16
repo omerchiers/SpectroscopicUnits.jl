@@ -33,7 +33,7 @@ function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,typeof(u
     return uconvert(unit, 2.0 * pi * c_0 / quantity)
 end
 
-function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,typeof(unit(1.0u"eV"))}) where {U <: Unitful.FrequencyUnits, T<:Real,D}
+function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,U}) where {U <: Unitful.EnergyUnits, T<:Real,D}
     energy = uconvert(u"J", quantity)
     freq = uconvert(Hz, energy / h)
     return convert_unit(unit, freq)
@@ -47,7 +47,7 @@ end
 convert_unit(unit::U, quantity::Unitful.Length) where {U <: Unitful.FrequencyUnits} = uconvert(unit, c_0 / (quantity |> m))
 convert_unit(unit::typeof(radHz), quantity::Unitful.Length) = uconvert(unit, 2.0 * pi * c_0 / (quantity |> m))
 
-function convert_unit(unit::typeof(u"eV"), quantity::Unitful.Length)
+function convert_unit(unit::Unitful.EnergyUnits, quantity::Unitful.Length)
     freq = uconvert(Hz, c_0 / quantity )
     energy = uconvert(u"J", h * freq)
     return uconvert(unit, energy)
