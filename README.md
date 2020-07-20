@@ -13,7 +13,7 @@ Just as in `Unitful.uconvert`, the first argument is a unit and the second is a 
 ## Supported units
 For now, the following units are supported: Hz, radHz, eV (and most energy units), and all length units. Everything can be converted into everything.
 
-To make writing units slightly easier, we created aliases for the most common units:
+To make writing units slightly easier, we created aliases for the most common ones:
 
 ```julia
 const Hz = u"s^-1"
@@ -25,7 +25,7 @@ const mm = u"mm"
 const μm = u"μm"
 const nm = u"nm"
 ```
-which are all exported. However, any unit of frequency
+which are all exported.
 
 ## Interface
 To extend the conversion for units of your own package, two methods should be defined which convert your unit to `Unitful.LengthUnits` and a length back to you unit.
