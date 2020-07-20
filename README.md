@@ -40,6 +40,5 @@ convert_unit(unit::U, quantity::Unitful.Length) where {U <: Unitful.FrequencyUni
 ```
 where `c_0` is the speed of light in vacuum obtained from [PhysicalConstants.jl](https://github.com/JuliaPhysics/PhysicalConstants.jl). Converting everything between lenght units allows us to convert between all units. The choice of length units is quite arbitrary and we could have taken any other unit.
 
-!!! note
-
-In this package, the unit `radHz` is understood as the unit of pulsation ``ω = 2πν`` where ``ν`` is the frequency in `Hz`. Hence, when one converts a frequency in `Hz` to  `radHz`, the frequency is then devided by `2π`. This is different from the convention used in Unitful.jl where `1 Hz = 1 radHz`.  
+## **Important note**
+In this package, the unit `radHz` is understood as the unit of pulsation ``ω = 2πν`` where ``ν`` is the frequency in `Hz`. Hence, when one converts a frequency in `Hz` to  `radHz`, the frequency is then devided by `2π`. This is different from the convention used in Unitful.jl where `1 Hz = 1 radHz`.
