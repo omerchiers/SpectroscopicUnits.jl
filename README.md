@@ -28,7 +28,7 @@ const nm = u"nm"
 which are all exported.
 
 ## Interface
-To extend the conversion for units of your own package, two methods should be defined which convert your unit to `Unitful.LengthUnits` and a length back to you unit.
+To extend the conversion for units of your own package, two methods should be defined which convert your unit to `Unitful.LengthUnits` and a length back to your unit.
 We show here the example for Hz:
 
 ```julia
