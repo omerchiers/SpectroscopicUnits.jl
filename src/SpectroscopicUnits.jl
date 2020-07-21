@@ -62,6 +62,6 @@ function convert_unit(unit::U, quantity::Quantity{T,D,V}) where {T<:Real,D,U,V}
     return convert_unit(unit, temp)
 end
 
-convert_unit(unit::U, quantity::Quantity{T,D,U}) where {T<:Real,D,U,V} = quantity
+convert_unit(unit::U, quantity::Quantity{T,D,U}) where {T<:Real,D,U} = quantity
 
 end
