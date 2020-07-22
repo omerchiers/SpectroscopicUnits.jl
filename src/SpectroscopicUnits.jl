@@ -16,8 +16,8 @@ export convert_unit
 # Constants for the most commonly used units
 export Hz, radHz, eV, m, cm, mm ,μm, nm
 
-const Hz = u"s^-1"
-const radHz = u"rad*s^-1"
+const Hz = u"Hz"
+const radHz = u"rad*Hz"
 const eV = u"eV"
 const m = u"m"
 const cm = u"cm"
@@ -29,7 +29,7 @@ function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,U}) wher
     return uconvert(unit, c_0 / quantity)
 end
 
-function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,typeof(unit(1.0u"rad/s"))}) where {T<:Real,D}
+function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,typeof(u"rad*Hz")}) where {T<:Real,D}
     return uconvert(unit, 2.0 * pi * c_0 / quantity)
 end
 
@@ -39,7 +39,7 @@ function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,U}) wher
     return convert_unit(unit, freq)
 end
 
-function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,typeof(unit(1.0 * cm^-1))}) where {T<:Real,D}
+function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,typeof(cm^-1)}) where {T<:Real,D}
     return uconvert(unit, 1.0/quantity)
 end
 
