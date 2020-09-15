@@ -8,22 +8,18 @@ module SpectroscopicUnits
 
 using Reexport
 @reexport using Unitful
+@reexport using Unitful.DefaultSymbols
 import PhysicalConstants.CODATA2018: c_0, ħ, h
+
 
 export convert_unit
 
-
 # Constants for the most commonly used units
-export Hz, radHz, eV, m, cm, mm ,μm, nm
+export radHz, eV
 
-const Hz = u"Hz"
 const radHz = u"rad*Hz"
 const eV = u"eV"
-const m = u"m"
-const cm = u"cm"
-const mm = u"mm"
-const μm = u"μm"
-const nm = u"nm"
+
 
 function convert_unit(unit::Unitful.LengthUnits, quantity::Quantity{T,D,U}) where {T<:Real,D, U<:Unitful.FrequencyUnits}
     return uconvert(unit, c_0 / quantity)
